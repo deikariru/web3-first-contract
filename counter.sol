@@ -1,14 +1,24 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+ // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
 
 contract Counter {
     uint public value;
+    address public owner;
 
-    function increment() public {
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not owner");
+        _;
+    }
+
+    function increment() public onlyOwner {
         value += 1;
     }
 
-    function decrement() public {
+    function decrement() public onlyOwner {
         value -= 1;
     }
 
