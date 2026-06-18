@@ -7,6 +7,7 @@ Today I learn how to make a small contract on solidify that can
 - get() returns current value
 - Added ownership control
 - Add event or logs
+- Add counter() to reset value to 0
 
 Tested in Remix VM:
 - Compiled in Paris vers 0.8.19..
