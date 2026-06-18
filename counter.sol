@@ -5,6 +5,9 @@ contract Counter {
     uint public value;
     address public owner;
 
+    event Increment(address indexed caller, uint newValue);
+    event Decrement(address indexed caller, uint newValue);
+
     constructor() {
         owner = msg.sender;
     }
@@ -16,10 +19,12 @@ contract Counter {
 
     function increment() public onlyOwner {
         value += 1;
+        emit Increment(msg.sender, value);
     }
 
     function decrement() public onlyOwner {
         value -= 1;
+        emit Decrement(msg.sender, value);
     }
 
     function get() public view returns (uint) {
