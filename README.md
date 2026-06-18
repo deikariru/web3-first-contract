@@ -6,6 +6,7 @@ Today I learn how to make a small contract on solidify that can
 - decrement() decreases value by 1
 - get() returns current value
 - Added ownership control
+- Add event or logs
 
 Tested in Remix VM:
 - Compiled in Paris vers 0.8.19..
