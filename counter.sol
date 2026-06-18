@@ -7,6 +7,7 @@ contract Counter {
 
     event Increment(address indexed caller, uint newValue);
     event Decrement(address indexed caller, uint newValue);
+    event Reset(address indexed caller, uint newValue);
 
     constructor() {
         owner = msg.sender;
@@ -15,6 +16,11 @@ contract Counter {
     modifier onlyOwner() {
         require(msg.sender == owner, "Not owner");
         _;
+    }
+
+    function reset() public onlyOwner {
+        value = 0;
+        emit Reset(msg.sender, value);
     }
 
     function increment() public onlyOwner {
